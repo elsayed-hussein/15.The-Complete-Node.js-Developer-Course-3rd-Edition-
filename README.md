@@ -1,4 +1,1 @@
-const fs = require("fs");
-
-fs.writeFileSync("NameOfFile","Content");
-fs.appendFileSync("NameOfFile", "Content");
+npm install -g nodemon@1.18.5
