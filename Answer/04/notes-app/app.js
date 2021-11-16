@@ -1,14 +1,18 @@
-const chalk = require('chalk');
+const chalk = require("chalk");
+const yargs = require("yargs");
 // const validator = require("validator");
 const getNotes = require("./notes.js");
 
-const command = process.argv[2]
+console.log(process.argv);
+console.log(yargs.argv);
 
-if (command ==='add') {
-    console.log('Adding Note!');
-}else if (command ==='remove'){
-    console.log('Removing Note!');
-}
+// const command = process.argv[2]
+
+// if (command ==='add') {
+//     console.log('Adding Note!');
+// }else if (command ==='remove'){
+//     console.log('Removing Note!');
+// }
 
 // const msg = getNotes();
 
