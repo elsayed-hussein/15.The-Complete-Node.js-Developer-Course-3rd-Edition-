@@ -1,79 +1,63 @@
-const chalk = require("chalk");
-const yargs = require("yargs");
-// const validator = require("validator");
-const getNotes = require("./notes.js");
+const chalk = require('chalk')
+const yargs = require('yargs')
+const notes = require('./notes.js')
 
-// customize yargs version
-// yargs.version("1.1.0");
+// Customize yargs version
+yargs.version('1.1.0')
 
-// create add command
+// Create add command
 yargs.command({
-  command: "add",
-  describe: "Add a new note ",
-  builder: {
-    title: {
-      describe: "note title",
-      demandOption: true,
-      type: "string",
+    command: 'add',
+    describe: 'Add a new note',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        },
+        body: {
+            describe: 'Note body',
+            demandOption: true,
+            type: 'string'
+        }
     },
-    body: {
-      describe: "note body",
-      demandOption: true,
-      type: "string",
+    handler: function (argv) {
+        notes.addNote(argv.title, argv.body)
+    }
+})
+
+// Create remove command
+yargs.command({
+    command: 'remove',
+    describe: 'Remove a note',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
     },
-  },
-  handler: function (argv) {
-    console.log("Title: " + argv.title);
-    console.log("Body: " + argv.body);
-    // console.log("adding a new note!",argv);
-  },
-});
-// create remove command
+    handler: function (argv) {
+        notes.removeNote(argv.title)
+    }
+})
+
+// Create list command
 yargs.command({
-  command: "remove",
-  describe: "remove a note ",
-  handler: function () {
-    console.log("removing the note!");
-  },
-});
-// create list command
+    command: 'list',
+    describe: 'List your notes',
+    handler: function () {
+        console.log('Listing out all notes')
+    }
+})
+
+// Create read command
 yargs.command({
-  command: "list",
-  describe: "list the notes ",
-  handler: function () {
-    console.log("listing the notes!");
-  },
-});
-// create read command
-yargs.command({
-  command: "read",
-  describe: "read the note ",
-  handler: function () {
-    console.log("reading the note!");
-  },
-});
-yargs.parse();
-// console.log(yargs.argv);
-// console.log(process.argv);
+    command: 'read',
+    describe: 'Read a note',
+    handler: function () {
+        console.log('Reading a note')
+    }
+})
 
-// const command = process.argv[2]
-
-// if (command ==='add') {
-//     console.log('Adding Note!');
-// }else if (command ==='remove'){
-//     console.log('Removing Note!');
-// }
-
-// const msg = getNotes();
-
-// console.log(msg);
-
-// console.log(process.argv[2]);
-
-// console.log(validator.isEmail('you@you.com'));
-
-// console.log(validator.isURL('you.com'));
-
-// console.log(chalk.green('Hello world!'));
-
-// console.log(chalk.bold.bgYellow.red(`Hello!`));
+yargs.parse()
