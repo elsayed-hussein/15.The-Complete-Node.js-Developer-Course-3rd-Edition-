@@ -18,6 +18,64 @@ MongoClient.connect(
     }
     const db = client.db(databaseName);
 
+    // // #################* deleteMany *#################
+    // const deletePromise = db
+    //   .collection("users")
+    //   .deleteMany({
+    //     age: 32,
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    // // #################* deleteOne *#################
+    // const deletePromise = db
+    //   .collection("users")
+    //   .deleteOne({
+    //     age: 24,
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    // // #################* updateMany *#################
+    // const updatePromise = db
+    //   .collection("users")
+    //   .updateMany(
+    //     { age: 34 },
+    //     {
+    //       $set: { age: 32 },
+    //     }
+    //   )
+    //   .then((result) => {
+    //     console.log(result);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    // // #################* updateOne *#################
+    // const updatePromise = db
+    //   .collection("users")
+    //   .updateOne(
+    //     {
+    //       _id: new ObjectId("619d606bf045a3ca7eea8412"),
+    //     },
+    //     {
+    //       $set: {
+    //         name: "rani",
+    //       },
+    //     }
+    //   )
+    //   .then((result) => {
+    //     console.log(result);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
     // // #################* find *#################
     // db.collection("users")
     //   .find({ age: 24 })
@@ -53,7 +111,6 @@ MongoClient.connect(
     //   }
     //   console.log(user);
     // });
-
     // // #################* insertMany *#################
     // db.collection("users").insertMany(
     //   [
@@ -67,19 +124,18 @@ MongoClient.connect(
     //     console.log(result);
     //   }
     // );
-
     // //  #################* insertOne *#################
-    //     db.collection("users").insertOne(
-    //       {
-    //         name: "elsayed",
-    //         age: 34,
-    //       },
-    //       (error, result) => {
-    //         if (error) {
-    //           return console.log("Unable to insert into database");
-    //         }
-    //         console.log(result);
-    //       }
-    //     );
+    // db.collection("users").insertOne(
+    //   {
+    //     name: "elsayed",
+    //     age: 34,
+    //   },
+    //   (error, result) => {
+    //     if (error) {
+    //       return console.log("Unable to insert into database");
+    //     }
+    //     console.log(result);
+    //   }
+    // );
   }
 );
